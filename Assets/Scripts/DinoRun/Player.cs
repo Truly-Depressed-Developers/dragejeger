@@ -43,11 +43,15 @@ public class Player : MonoBehaviour
 
          isJumping_ = true;
       }
+    //   faster fall down when jump key released
+      if (!Input.GetKey("w") && isJumping_ && rigidbody_.velocity.y > 0) {
+        rigidbody_.velocity = new Vector3(rigidbody_.velocity.x, rigidbody_.velocity.y / 2, 0);
+      }
       if (sneaking)
       {
-         transform.localScale = new Vector3(1, 0.5f , 1);
+         transform.localScale = new Vector3(1, 1 , 1);
       } else {
-         transform.localScale = new Vector3(1, 1, 1);
+         transform.localScale = new Vector3(1, 2, 1);
       }
 
       if (rigidbody_.velocity.y == 0)

@@ -123,72 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &229335097 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6671588629295029808, guid: a558166d405271d479417a53052593f0, type: 3}
-  m_PrefabInstance: {fileID: 6671588629632095905}
-  m_PrefabAsset: {fileID: 0}
---- !u!61 &229335099
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 229335097}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.057053685, y: -0.102697015}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.4875457, y: 2.0269682}
-  m_EdgeRadius: 0
---- !u!114 &229335100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 229335097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec5e6d99f9bc0ea4ca54bc9a15b56b68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  health: 100
---- !u!50 &229335101
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 229335097}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 7
 --- !u!1 &430775607
 GameObject:
   m_ObjectHideFlags: 0
@@ -956,6 +890,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5648518925544656010, guid: a558166d405271d479417a53052593f0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.17591286
+      objectReference: {fileID: 0}
+    - target: {fileID: 5648518925544656010, guid: a558166d405271d479417a53052593f0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.14494048
+      objectReference: {fileID: 0}
+    - target: {fileID: 5648518925544656010, guid: a558166d405271d479417a53052593f0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.4344
+      objectReference: {fileID: 0}
+    - target: {fileID: 5648518925544656010, guid: a558166d405271d479417a53052593f0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.17
+      objectReference: {fileID: 0}
     - target: {fileID: 6671588629295029808, guid: a558166d405271d479417a53052593f0, type: 3}
       propertyPath: m_Name
       value: Dragon

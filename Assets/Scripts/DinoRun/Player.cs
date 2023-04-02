@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
    // Update is called once per frame
    void Update()
    {
-      transform.position = new Vector2(MainCamera.instance.xPosition - MainCamera.instance.cameraWidth * 0.8f, transform.position.y);
+      transform.position = new Vector2(MainCamera1.instance.xPosition - MainCamera1.instance.cameraWidth * 0.8f, transform.position.y);
 
       PlayerJump();
 

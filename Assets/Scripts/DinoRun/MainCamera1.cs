@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainCamera : MonoBehaviour
+public class MainCamera1 : MonoBehaviour
 {
    public float cameraHeight; // half of real height
    public float aspectRatio;
@@ -11,7 +11,7 @@ public class MainCamera : MonoBehaviour
    public float xPosition;
    public float yPosition;
 
-   public static MainCamera instance;
+   public static MainCamera1 instance;
 
    // Start is called before the first frame update
    void Awake()

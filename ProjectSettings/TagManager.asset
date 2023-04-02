@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Fireball
   - Spear
+  - Wall
+  - Spike
   layers:
   - Default
   - TransparentFX

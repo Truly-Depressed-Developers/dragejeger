@@ -24,7 +24,7 @@ public class SpikesGenerator : MonoBehaviour
             GameObject s;
             float newSpacing;
             if (Random.value <= stalagmiteChance) {
-                if (lastType == Type.Stalagmite) {
+                if (lastType == Type.Stalagmite || lastType == Type.Stalactite) {
                     newSpacing = biggerSpacing;
                    } else {
                     newSpacing = smallerSpacing;

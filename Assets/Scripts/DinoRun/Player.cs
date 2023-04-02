@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -85,7 +86,7 @@ public class Player : MonoBehaviour
    // }
 
    private void OnTriggerEnter2D(Collider2D other) {
-        SetIsAliveToNot();
+        SetIsAliveToNot(other);
    }
 
    void CheckIfHitsWall()
@@ -112,8 +113,14 @@ public class Player : MonoBehaviour
     //   }
    }
 
-   void SetIsAliveToNot()
+   void SetIsAliveToNot(Collider2D other)
    {
+      if(other.transform.CompareTag("Teleporter")){
+         SceneManager.LoadScene(3);
+
+         return;
+      }
+
       DinoRunManager.instance.PlayerIsAlive_ = false;
       Debug.Log("AAAAAAAAAAA");
       Destroy(gameObject);

@@ -5,7 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/Prolog.unity
+    guid: b629ebb699926194b882f0d913a64392
+  - enabled: 1
+    path: Assets/Scenes/Quest.unity
+    guid: 63ba7f284cdf34345ab996bfb774e0f5
+  - enabled: 1
+    path: Assets/Scenes/DinoRun.unity
+    guid: ccebb1d1ecec253418ae1042688346e6
+  - enabled: 1
+    path: Assets/Scenes/BossBattle/BossBattle.unity
+    guid: ff7648f1d9ca5b344a3eb5e76d53b702
   m_configObjects: {}

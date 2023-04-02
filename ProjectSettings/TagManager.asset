@@ -8,6 +8,7 @@ TagManager:
   - Spear
   - Wall
   - Spike
+  - Teleporter
   layers:
   - Default
   - TransparentFX

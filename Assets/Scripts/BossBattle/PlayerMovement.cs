@@ -66,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
    {
       if (!Input.GetKey("space") || Time.time - lastShoot < 0.3f) return;
 
-      animator.Play("PlayerAnimation");
+    //   animator.Play("PlayerAnimation");
 
       lastShoot = Time.time;
       var spear = Instantiate(spearPrefab_);

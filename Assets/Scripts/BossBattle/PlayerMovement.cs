@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+   [SerializeField] Animator animator;
    [SerializeField] SpriteRenderer spriteRenderer_;
    [SerializeField] private GameObject spearPrefab_;
    [SerializeField] private float speed_ = 10f;
@@ -31,7 +32,8 @@ public class PlayerMovement : MonoBehaviour
       CheckShooting();
    }
 
-   private void Movement(){
+   private void Movement()
+   {
       if (Time.time - lastChange < 0.1f) return;
 
       lastChange = Time.time;
@@ -60,20 +62,23 @@ public class PlayerMovement : MonoBehaviour
       }
    }
 
-   private void CheckShooting(){
-      if(!Input.GetKey("space") || Time.time - lastShoot < 0.3f) return;
+   private void CheckShooting()
+   {
+      if (!Input.GetKey("space") || Time.time - lastShoot < 0.3f) return;
+
+      animator.Play("PlayerAnimation");
 
       lastShoot = Time.time;
       var spear = Instantiate(spearPrefab_);
 
-      spear.transform.position = new Vector2(transform.position.x, transform.position.y + height/2);
+      spear.transform.position = new Vector2(transform.position.x, transform.position.y + height / 2);
    }
 
-   private void OnTriggerEnter2D(Collider2D other) 
+   private void OnTriggerEnter2D(Collider2D other)
    {
       if (other.transform.CompareTag("Fireball"))
       {
-         // Destroy(gameObject);
+         Destroy(gameObject);
       }
    }
 }

@@ -24,6 +24,10 @@ public class DinoRunManager : MonoBehaviour
     }
 
     void MoveCamera(){
+        if(!playerIsAlive_) return;
+
+        
+
         camera_.transform.Translate(Vector2.right * Time.deltaTime * speed_);
     }
 

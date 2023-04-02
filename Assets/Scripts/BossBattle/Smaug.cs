@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Smaug : MonoBehaviour
 {
@@ -35,6 +36,7 @@ public class Smaug : MonoBehaviour
 
       if (health == 0)
       {
+         SceneManager.LoadScene(0);
          Destroy(gameObject);
       }
    }

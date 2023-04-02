@@ -23,14 +23,15 @@ public class SpikesGenerator : MonoBehaviour
         for (int i = 0; i < 100; i++) {
             GameObject s;
             float newSpacing;
-            if (Random.value >= stalagmiteChance) {
-                if (lastType == Type.Stalactite) {
+            if (Random.value <= stalagmiteChance) {
+                if (lastType == Type.Stalagmite) {
                     newSpacing = biggerSpacing;
                    } else {
                     newSpacing = smallerSpacing;
                    }                
                 s = Instantiate(stalagmitePrefab);
                 s.transform.parent = stalagmiteParent.transform;
+                s.transform.localScale = new Vector3(Random.value > .5 ? 1 : -1, 1, 1);
                 s.transform.localPosition = new Vector3(spacingSum + newSpacing, Random.Range(2f, 0f), 0);
                 lastType = Type.Stalagmite;
             } else {
@@ -45,6 +46,7 @@ public class SpikesGenerator : MonoBehaviour
                    } else {
                     newSpacing = smallerSpacing;
                    }
+                s.transform.localScale = new Vector3(Random.value > .5 ? 1 : -1, 1, 1);
                 s.transform.localPosition = new Vector3(spacingSum + newSpacing, h, 0);
                 lastType = type;
             }

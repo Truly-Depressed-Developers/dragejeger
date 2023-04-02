@@ -5,8 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
+   [SerializeField] GameObject crouchImage;
+   [SerializeField] GameObject walkingImage;
+
    [SerializeField] private SpriteRenderer _playerSpriteRenderer;
    [SerializeField] private Rigidbody2D rigidbody_;
+   [SerializeField] private BoxCollider2D boxCollider2D_;
    [SerializeField] private Camera camera_;
 
    [SerializeField] private float jump_speed_ = 20f;
@@ -44,15 +48,31 @@ public class Player : MonoBehaviour
 
          isJumping_ = true;
       }
-    //   faster fall down when jump key released
-      if (!Input.GetKey("w") && isJumping_ && rigidbody_.velocity.y > 0) {
-        rigidbody_.velocity = new Vector3(rigidbody_.velocity.x, rigidbody_.velocity.y / 2, 0);
+      //   faster fall down when jump key released
+      if (!Input.GetKey("w") && isJumping_ && rigidbody_.velocity.y > 0)
+      {
+         rigidbody_.velocity = new Vector3(rigidbody_.velocity.x, rigidbody_.velocity.y / 2, 0);
       }
       if (sneaking)
       {
-         transform.localScale = new Vector3(1, 1 , 1);
-      } else {
-         transform.localScale = new Vector3(1, 2, 1);
+         // transform.localScale = new Vector3(1, 1 , 1);
+
+         // _playerSpriteRenderer.sprite = crouchImage;
+         crouchImage.gameObject.SetActive(true);
+         walkingImage.gameObject.SetActive(false);
+
+         boxCollider2D_.offset = new Vector2(boxCollider2D_.offset.x, 0.3447244f);
+         boxCollider2D_.size = new Vector2(boxCollider2D_.size.x, 0.6894488f);
+
+      }
+      else
+      {
+         // transform.localScale = new Vector3(1, 2, 1);
+         walkingImage.gameObject.SetActive(true);
+         crouchImage.gameObject.SetActive(false);
+
+         boxCollider2D_.offset = new Vector2(boxCollider2D_.offset.x, 0.5257544f);
+         boxCollider2D_.size = new Vector2(boxCollider2D_.size.x, 1.051509f);
       }
 
       if (rigidbody_.velocity.y == 0)
@@ -85,37 +105,39 @@ public class Player : MonoBehaviour
    //    }
    // }
 
-   private void OnTriggerEnter2D(Collider2D other) {
-        SetIsAliveToNot(other);
+   private void OnTriggerEnter2D(Collider2D other)
+   {
+      SetIsAliveToNot(other);
    }
 
    void CheckIfHitsWall()
    {
-    //   float heightRange = (_playerHeight / 2) * 0.6f;
+      //   float heightRange = (_playerHeight / 2) * 0.6f;
 
-    //   Vector2 hitVector2_1 = new Vector2(transform.position.x + _playerWidth / 2, transform.position.y - heightRange);
-    //   Vector2 hitVector2_2 = new Vector2(transform.position.x + _playerWidth / 2, transform.position.y + heightRange);
-    //   RaycastHit2D hit1 = Physics2D.Raycast(hitVector2_1, Vector2.right, 0.1f);
-    //   RaycastHit2D hit2 = Physics2D.Raycast(hitVector2_2, Vector2.right, 0.1f);
+      //   Vector2 hitVector2_1 = new Vector2(transform.position.x + _playerWidth / 2, transform.position.y - heightRange);
+      //   Vector2 hitVector2_2 = new Vector2(transform.position.x + _playerWidth / 2, transform.position.y + heightRange);
+      //   RaycastHit2D hit1 = Physics2D.Raycast(hitVector2_1, Vector2.right, 0.1f);
+      //   RaycastHit2D hit2 = Physics2D.Raycast(hitVector2_2, Vector2.right, 0.1f);
 
-    //   if (hit1)
-    //   {
-    //      Debug.Log(hit1.transform.name);
-    //   }
+      //   if (hit1)
+      //   {
+      //      Debug.Log(hit1.transform.name);
+      //   }
 
-    //   if (hit2)
-    //   {
-    //      Debug.Log(hit2.transform.name);
-    //   }
-    //   if (hit1 || hit2)
-    //   {
-    //      SetIsAliveToNot();
-    //   }
+      //   if (hit2)
+      //   {
+      //      Debug.Log(hit2.transform.name);
+      //   }
+      //   if (hit1 || hit2)
+      //   {
+      //      SetIsAliveToNot();
+      //   }
    }
 
    void SetIsAliveToNot(Collider2D other)
    {
-      if(other.transform.CompareTag("Teleporter")){
+      if (other.transform.CompareTag("Teleporter"))
+      {
          SceneManager.LoadScene(3);
 
          return;

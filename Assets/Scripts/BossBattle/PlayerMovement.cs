@@ -73,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
    {
       if (other.transform.CompareTag("Fireball"))
       {
-         Destroy(gameObject);
+         // Destroy(gameObject);
       }
    }
 }

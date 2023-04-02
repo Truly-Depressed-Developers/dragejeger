@@ -56,14 +56,6 @@ public class LaneManager : MonoBehaviour
    {
       while (true)
       {
-         Debug.Log("Fucking Spawning");
-         // var newFireBall = Instantiate(fireBallPrefab);
-
-         // Lane randomLane = laneList[Random.Range(0, laneCount)];
-         // newFireBall.transform.parent = randomLane.transform;
-
-         // -----------------------------------------
-         // newFireBall.transform.localPosition = new Vector2(0, newFireBall.transform.localPosition.y);
 
          List<int> exIndexes = new List<int>();
 
@@ -73,6 +65,10 @@ public class LaneManager : MonoBehaviour
          
 
          yield return new WaitForSeconds(2f);
+
+         if(Smaug.instance.health == 0){
+            break;
+         }
 
       }
    }

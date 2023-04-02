@@ -17,6 +17,8 @@ public class LaneManager : MonoBehaviour
 
    [SerializeField] GameObject lanePrefab;
    [SerializeField] GameObject fireBallPrefab;
+   [SerializeField] ParticleSystem fireParticleSystem;
+   [SerializeField] Collider2D fireCollider;
 
    /**
     * Lists
@@ -54,17 +56,29 @@ public class LaneManager : MonoBehaviour
 
    private IEnumerator SpawnFireBalls()
    {
+        yield return new WaitForSeconds(4f);
+        int i = 1;
       while (true)
       {
+        if (i++ % 4 == 0) {
+            Debug.Log("start");
+            fireParticleSystem.Play();
+            yield return new WaitForSeconds(1.5f);
+            fireCollider.enabled = true;
+            yield return new WaitForSeconds(3.4f);
+            fireCollider.enabled = false;
+            yield return new WaitForSeconds(2f);
 
-         List<int> exIndexes = new List<int>();
+        } else {
+            List<int> exIndexes = new List<int>();
 
-         exIndexes.Add(SpawnFireBall(exIndexes));
-         exIndexes.Add(SpawnFireBall(exIndexes));
-         exIndexes.Add(SpawnFireBall(exIndexes));
-         
+            exIndexes.Add(SpawnFireBall(exIndexes));
+            exIndexes.Add(SpawnFireBall(exIndexes));
+            exIndexes.Add(SpawnFireBall(exIndexes));
+            yield return new WaitForSeconds(2f);
+        }
 
-         yield return new WaitForSeconds(2f);
+
 
          if(Smaug.instance.health == 0){
             break;
